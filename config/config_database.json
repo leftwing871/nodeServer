@@ -1,0 +1,7 @@
+{
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "1234567890",
+    "database": "jsman",
+    "port": 3306
+}

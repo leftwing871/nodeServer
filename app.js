@@ -5,17 +5,29 @@ var router = require('./router/index')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
+var MySQLStore = require('express-mysql-session')(session)
 var flash = require('connect-flash')
+var db_config = require('./config/config_database.json');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+
+var dboptions = {                                                 
+    host: db_config.host,
+    port: db_config.port,
+    user: db_config.user,
+    password: db_config.password,
+    database: db_config.database
+};
 
 
 app.use(session({
   secret: 'keyboar cat',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MySQLStore(dboptions)
 }))
+
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
@@ -48,11 +60,12 @@ var mysql = require('mysql')
 
 //connection 객체를 생성합니다.
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1234567890',
-  database: 'jsman'
+  host: db_config.host,
+  user: db_config.user,
+  password: db_config.password,
+  database: db_config.database
 })
+
 
 //db에 연결합니다.
 connection.connect()
