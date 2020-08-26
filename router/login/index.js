@@ -5,7 +5,7 @@ var path = require('path')
 var mysql = require('mysql');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var session = require('express-session')
+//var session = require('express-session')
 var flash = require('connect-flash')
 
 //DATABASE SETTING

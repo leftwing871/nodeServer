@@ -19,8 +19,11 @@ router.get('/', function(req, res) {
     //res.sendFile(path.join(__dirname , '../../public/main.html'))
     console.log(req.user)
     var user = req.user;
-    if(!user) res.render('login.ejs')
-    res.render('main.ejs', {'id': user.id})
+    if(!user) {
+        res.render('login.ejs')
+    } else {
+        res.render('main.ejs', {'id': user.id})    
+    }
 })
 
 //다른파일에서 이 파일(main.js)을 쓸 수 있습니다.
