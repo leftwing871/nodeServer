@@ -1,0 +1,38 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        
+            <h1>List blog</h1>
+        
+            <table border="1">
+            <caption>Blog</caption>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>writer</th>
+                    <th>registDate</th>
+                    <th>vote</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+        <% list.forEach(function(entry) {%>
+                <tr>
+                    <td><%=entry._id%></td>
+                    <td><a href="/mongodb/view?id=<%=entry._id%>"><%=entry.title%></a></td>
+                    <td><%=entry.writer%></td>
+                    <td><%=entry.registDate.toLocaleDateString()%> <%=entry.registDate.toLocaleTimeString()%></td>
+                    <td><%=entry.vote%></td>
+                    <td><a href="/mongodb/add?id=<%=entry._id%>">수정</a></td>
+                    <td><a href="/mongodb/delete?id=<%=entry._id%>">삭제</a></td>
+                </tr>
+        <%});%>
+            </table>
+            <p>&nbsp;</p>
+            <a href="/mongodb/add">[등록]</a>
+        
+            
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>

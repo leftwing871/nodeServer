@@ -1,0 +1,22 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        
+            <h1>View blog</h1>
+
+    
+            id : <br /><%= id %><br>
+            writer : <br /><%= writer %><br>
+            title : <br /><%= title %><br>
+            content : <br />
+            <%= content %>
+            <br />
+            registDate : <br /><%= registDate %><br>
+            <a href="/mongodb/add?id=<%=id%>">수정</a>&nbsp;&nbsp;&nbsp;
+            <a href="/mongodb/delete?id=<%=id%>">삭제</a>
+
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>

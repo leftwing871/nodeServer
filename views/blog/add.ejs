@@ -1,0 +1,20 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        
+            <h1>Add blog</h1>
+        
+            <form action="/mongodb/add" method="POST">
+                id : <br /><input type="text" name="id" id="id" value="<%= id %>" readonly>(자동생성: 읽기전용)<br>
+                writer : <br /><input type="text" name="writer" name="writer" value="<%= writer %>"><br>
+                title : <br /><input type="text" name="title" title="title" value="<%= title %>"><br>
+                content : <br />
+                <textarea id="content" name="content" rows="4" cols="50"><%= content %></textarea>
+                <br />
+                <input type="submit">
+            </form>
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>
