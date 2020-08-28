@@ -8,21 +8,35 @@ var session = require('express-session')
 var MySQLStore = require('express-mysql-session')(session)
 var db_config = require('./config/config_database.json');
 var flash = require('connect-flash')
-
 //mysql module사용을 선언합니다.
 var mysql = require('mysql')
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
-
-
-
-
 
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
+
+
+//web.js(app.js)에 아래와 같이 추가하면 모든 요청에 대해 공통로직을 추가할 수 있습니다. 
+//next()를 호출하면 다음 라우터 레벨 미들웨어 함수를 호출합니다. (요청 URL에 맞는 라우팅을 찾아서 실행)
+app.use(function(req, res, next){
+	console.log('..공통로직 처리..');
+	
+	if(req.cookies['loginId'] !== undefined){
+        console.log("로그인 정보 있음" + req.cookies['loginId']);
+    }
+    else{
+        console.log("로그인 정보 없음");
+        //res.cookie('loginId', 'cookieValue')
+    }
+    next();
+});
 app.use(router)
 
 
@@ -54,8 +68,6 @@ app.listen(3000, function() {
 //     //res.sendFile("/home/ec2-user/environment/nodeServer/public/main.html")
 //     res.sendFile(__dirname + "/public/main.html")
 // })
-
-
 
 
 

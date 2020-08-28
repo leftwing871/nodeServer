@@ -19,13 +19,13 @@ var mongoDB = process.env.MONGODB_URI || documentdb_config.mongodb_url;
 //     sslCA: certFileBuf
 // };
 
-mongoose.connect(mongoDB, {
-    useNewUrlParser: true,
-    ssl: true,
-    sslValidate: false,
-    sslCA: certFileBuf})
-.then(() => console.log('Connection to DocumentDB successful'))
-.catch((err) => console.error(err,'Error'));
+// mongoose.connect(mongoDB, {
+//     useNewUrlParser: true,
+//     ssl: true,
+//     sslValidate: false,
+//     sslCA: certFileBuf})
+// .then(() => console.log('Connection to DocumentDB successful'))
+// .catch((err) => console.error(err,'Error'));
 
 //0. /mongodb, GET index
 router.get('/', function(req, res) {
