@@ -33,7 +33,7 @@ const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
 // };
 
 var poolData2 = {
-    UserPoolId : 'ap-northeast-2_S4PihYBLx', // your user pool id here
+    UserPoolId : '', // your user pool id here
     ClientId : '1kccrpc3tqh6bncor2ifdpm3kh' // your client id here //Generate Client Secret 반드시 해제
 };
 
@@ -572,6 +572,32 @@ router.get('/logout', function(req, res) {
     res.clearCookie('tokens');
     res.redirect('/member_cognito')
 })
+
+router.get('/deleteUser', function(req, res) {
+    
+    res.render('member_cognito/deleteUser.ejs', {'message': ''}) 
+
+})
+
+router.post('/deleteUser', function(req, res){
+    // var username = req.body.username
+    
+    // const userDetails = { Username: 'leftwing871', Pool: userPool }
+    // const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userDetails)
+    // cognitoUser.confirmPassword(code, password, {
+    //     onSuccess: data => {
+    //         console.log(data)
+    //         res.redirect('/member_cognito')
+    //     }, 
+    //     onFailure: err => {
+    //         console.error(err)
+    //     }
+    // })
+    
+})
+
+
+
 
 function validateToken(tokens)
 {
