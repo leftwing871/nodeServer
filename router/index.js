@@ -10,6 +10,7 @@ var login = require('./login/index')
 var logout = require('./logout/index')
 var movie = require("./movie/index")
 var mongodb = require("./mongodb/index")
+var member_cognito = require("./member_cognito/index")
 
 router.use('/main', main)// /main 이하의 경로는 해당 router 에서 처리하겠다는 내용
 router.use('/email', email)
@@ -18,6 +19,7 @@ router.use('/login', login)
 router.use('/logout', logout)
 router.use('/movie', movie)
 router.use('/mongodb', mongodb)
+router.use('/member_cognito', member_cognito)
 
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, "../public/main.html"))

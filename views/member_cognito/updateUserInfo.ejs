@@ -1,0 +1,18 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <h1>회원정보 수정</h1>
+
+            <p>새로운 정보를 입력하세요.</p>
+            <form action="/member_cognito/updateUserInfo" method="POST">
+
+                custom:os : <br /><input type="text" name="os"><br>
+
+                <input type="submit">
+            </form>
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>

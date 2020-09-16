@@ -1,0 +1,16 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <h1>member_cognito</h1>
+            <section class="messages"> <%= message %> </section>
+            <form action="/member_cognito/confirmSignUp" method="POST">
+                Username : <br /><input type="text" name="Username"><br><br>
+                ConfirmationCode : <br /><input type="text" name="ConfirmationCode"><br>
+                <input type="submit">
+            </form>
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>

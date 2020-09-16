@@ -1,0 +1,19 @@
+<%- include('../index_top.ejs')-%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <h1>member_cognito</h1>
+            <section class="messages"> <%= message %> </section>
+            <form action="/member_cognito/signUp" method="POST">
+                username : <br /><input type="text" name="username"><br>
+                email : <br /><input type="text" name="email"><br>
+                password : <br /><input type="text" name="password"><br>
+                custom:os : <br /><input type="text" name="os"><br>
+                custom:user-state : <br /><input type="text" name="user-state"><br>
+                <input type="submit">
+            </form>
+
+        </div>
+
+<%- include('../index_bottom.ejs')-%>
